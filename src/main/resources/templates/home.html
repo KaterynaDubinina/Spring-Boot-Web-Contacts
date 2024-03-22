@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Emerald City</title>
+    <link rel='shortcut icon' th:href="@{icons/favicon.ico}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+</head>
+<body style="background-color: #0d0d0d; text-align: center;">
+<!-- content -->
+<div class="d-flex justify-content-center align-items-center text-white p-3"
+     style="background: linear-gradient(to right, #0d0d0d, #373536, #0d0d0d); font-size: 50px;">
+    <i class="bi bi-buildings" style="font-size: 3rem; color: white;"></i>&nbsp;Emerald City Realty Consultants
+</div>
+<div>
+    <img th:src="@{images/Seattle.jpg}" class="img-fluid" alt="image">
+</div>
+<div class="container p-5">
+    <div class="container p-3">
+        <div class="p-3" style="font-size: 50px; color: white; font-weight: bold;">Welcome to Emerald City Website</div>
+        <div class="p-3" style="font-size: 24px; color: white; text-align: justify;">
+            <p style="margin-bottom: 5px;">
+                We are your premier destination for real estate consultants in Seattle, USA.
+                Whether you're buying, selling, or investing in property, our team of expert consultants is here
+                to guide you every step of the way. Explore our comprehensive services and discover how we can help you
+                achieve your real estate goals with confidence and success. Let us be your trusted partner in navigating the dynamic and exciting real estate market of Seattle.
+            </p>
+        </div>
+    </div>
+    <div class="p-3" style="font-size: 50px; color: white; font-weight: bold;">Our Consultants</div>
+    <div class="container text-center" style="font-size: 16px; color: white">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 row-cols-md-5 justify-content-center gap-4">
+            <div class="card p-2 m-0.5" th:each="contact : ${contacts}">
+                <img th:src="@{${contact.image}}" class="card-img-top" alt="card-image">
+                <div class="card-body">
+                    <p class="card-text visually-hidden" th:text="${contact.id}"></p>
+                    <p class="card-text" style="font-size: 20px; font-weight: bold;" th:text="${contact.name} + ' ' + ${contact.surname}"></p>
+                    <p class="card-text" th:text="${contact.phone}"></p>
+                    <p class="card-text" th:text="${contact.description}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /content -->
+<!-- footer -->
+<div class="container-fluid justify-content-center p-3" style="background-color: #373536;">
+    <p class="text-center" style="font-size: 16px; color: white">
+        <span class="bi bi-geo-fill"></span> : 1234 Rainier Avenue S, Suite 200
+        Seattle, WA 98144
+        United States<br>
+        <span class="bi bi-telephone-fill"></span> : (555) 206-7890<br>
+        <span class="bi bi-envelope-at-fill"></span> : emeraldcity@mail.com<br>
+        <span class="p-3" style="font-size: 12px; color: white">&copy; Emerald City Realty Consultants, LLC</span>
+    </p>
+    <p class="text-center" style="font-size: 16px; color: white">
+        <i class="bi bi-facebook"></i>&nbsp;&nbsp;
+        <i class="bi bi-instagram"></i>&nbsp;&nbsp;
+        <i class="bi bi-telegram"></i>
+    </p>
+</div>
+<!-- /footer -->
+</body>
+</html>
